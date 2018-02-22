@@ -1,22 +1,15 @@
-var inquirer = require("inquirer");
-var fs = require("fs");
+function letter(value) {
+	this.value = value;
+	this.show = false;
+	if (this.value == ' ') 
+		this.show = true;
+}
 
-function Letter(character) {
-	this.character = "";
-	this.appear = false;
-	this.doWork = function () {
-		if(this.character) {
-
-		} else if (this.appear) {
-			return this.character;
-		}
-		return "_";
+letter.prototype.printInfo = function() {
+	if (this.show) {
+		return this.value;
 	}
-	console.log("hello");
-} 
+	return "_ ";
+}
 
-console.log(Letter);
-
-
-
-module.exports = Letter;
+module.exports = letterJS;
