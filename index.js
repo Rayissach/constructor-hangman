@@ -1,14 +1,15 @@
 
-var wordJS = require("./word.js");
-var letterJS = require("./letter.js");
-var inquirer = require("inquirer");
+var word = require("./word.js");
+var Letter = require ("./letter.js")
+var inquirer = require('inquirer');
+var prompt = require('prompt');
 var letterGuessed;
 var sauces = ["Ranch", "Barbecque", "Siracha", "Sweet and Sour", "Ketchup", "Mustard", "Honey", "Mayonnaise", "Chili", "Vinegar", "Goddess"];
 var randomChoice = Math.floor(Math.random() * sauces.length);
 var randomSauces = sauces[randomChoice];
-exports.LetterIn;
+exports.letter;
 
-var masterSauce = new Word(randomSauces);
+var masterSauce = new word(randomSauces);
 var maxGuesses = 10;
 
 function startGame(){
@@ -18,7 +19,7 @@ function startGame(){
 	return; 
 	}
 	inquirer.prompt([{
-		name: 'LetterIn',
+		name: 'letter',
 		type: 'text',
 		message: 'Enter a letter:',
 		validate: function(arr){
@@ -27,8 +28,8 @@ function startGame(){
 			return regEx.test(arr);
 				}
 		}]).then(function(input){ 
-				var letterIn = input.LetterIn; 
-				masterSauce.findLetter(LetterIn); 
+				var letter = input.letter; 
+				masterSauce.findLetter(letter); 
 					if(masterSauce.workDown()){ 
 					console.log('Lit!! Your answer ' + masterSauce.toString() + 'was correct!');
 					return; 

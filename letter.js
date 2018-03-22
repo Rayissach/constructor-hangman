@@ -1,3 +1,6 @@
+var inquirer = require('inquirer');
+var prompt = require('prompt');
+
 function letter(value) {
 	this.value = value;
 	this.show = false;
@@ -12,4 +15,19 @@ letter.prototype.printInfo = function() {
 	return "_ ";
 }
 
-module.exports = letterJS;
+module.exports = letter;
+
+
+// this.value == "_"
+
+// if guessed return false
+
+// function goHead (value) {
+// 	if (this.value === " ") {
+// 		console.log("yea")
+// 		rl.write( "")
+// 	}
+// }
+
+// goHead();
+

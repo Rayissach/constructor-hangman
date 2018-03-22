@@ -37,4 +37,4 @@ word.prototype.emptyString = function(){
   return output;
 }
 
-module.exports = Word;
+module.exports = word;
