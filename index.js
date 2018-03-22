@@ -26,12 +26,13 @@ function startGame(){
 
 			var regEx = new RegExp("^[a-zA-Z\s]{1,1}$");
 			return regEx.test(arr);
-				}
+                }
+                
 		}]).then(function(input){ 
 				var letter = input.letter; 
 				masterSauce.letterCatch(letter); 
 					if(masterSauce.workDone()){ 
-					console.log('Lit!! Your answer ' + masterSauce.toString() + 'was correct!');
+					console.log('Lit!! Your answer ' + letter.toString() + ' was correct!');
 					return; 
 					}
 				console.log('-------------------\n'); 
