@@ -13,7 +13,7 @@ var masterSauce = new word(randomSauces);
 var maxGuesses = 10;
 
 function startGame(){
-	console.log(masterSauce.toString());
+	// console.log(masterSauce.toString());
 	if (masterSauce.guessesMade.length >= maxGuesses){
 		console.log("You're Out of guesses try your luck in the sauce once again.");
 	return; 
@@ -29,8 +29,8 @@ function startGame(){
 				}
 		}]).then(function(input){ 
 				var letter = input.letter; 
-				masterSauce.findLetter(letter); 
-					if(masterSauce.workDown()){ 
+				masterSauce.letterCatch(letter); 
+					if(masterSauce.workDone()){ 
 					console.log('Lit!! Your answer ' + masterSauce.toString() + 'was correct!');
 					return; 
 					}
