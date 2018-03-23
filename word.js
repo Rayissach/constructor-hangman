@@ -1,17 +1,18 @@
-var letterJS = require("./letter.js");
+var letter = require("./letter.js");
+exports.letter;
 
 function word(value){
 	this.value = value;
-	this.letters = [];
+	this.letter = [];
 	this.guessesMade = "";
-	for(var i = 0; i < this.letters.length; i++) {
-		this.letters.push(new letter(this.value[i]));
+	for(var i = 0; i < this.letter.length; i++) {
+		this.letter.push(new letter(this.value[i]));
 	}
 };
 
 word.prototype.workDone = function(){
-	for(var i = 0; i < this.letters.length; i++){
-		if(!this.letters[i].show) return false;
+	for(var i = 0; i < this.letter.length; i++){
+		if(!this.letter[i].show) return false;
 	}
 	return true;
 }
@@ -22,19 +23,23 @@ word.prototype.letterCatch = function(letter){
 		return "Duplicate";
 	} 
 	this.guessesMade += lowerLetter; 
-	for(var i=0; i<this.letters.length;i++){
-		if(this.letters[i].value.toLowerCase() == lowerLetter){
-		this.letters[i].show = true;
+	for(var i=0; i<this.letter.length;i++){
+		if(this.letter[i].value.toLowerCase() == lowerLetter){
+		this.letter[i].show = true;
 		}
 	}
 };
 
 word.prototype.emptyString = function(){
   var output = "";
-  for(var i=0; i<this.letters.length; i++){
-    output += this.letters[i].printInfo();
+  for(var i=0; i<this.letter.length; i++){
+    output += this.letter[i].printInfo();
   }
   return output;
 }
 
 module.exports = word;
+
+
+
+

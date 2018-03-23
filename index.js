@@ -23,7 +23,7 @@ function startGame(){
 		type: 'text',
 		message: 'Enter a letter:',
 		validate: function(arr){
-
+            //Make sure the the input is a letter
 			var regEx = new RegExp("^[a-zA-Z\s]{1,1}$");
 			return regEx.test(arr);
                 }
@@ -33,7 +33,9 @@ function startGame(){
 				masterSauce.letterCatch(letter); 
 					if(masterSauce.workDone()){ 
 					console.log('Lit!! Your answer ' + letter.toString() + ' was correct!');
-					return; 
+					// return letter.toString(); 
+					} else if (masterSauce.workDone()) {
+						console.log("heyyyyyy")
 					}
 				console.log('-------------------\n'); 
 				console.log('You have ' + (maxGuesses - masterSauce.guessesMade.length) + ' guesses left.')
